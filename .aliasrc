@@ -1,0 +1,7 @@
+# Aliases
+# oh-my-zsh users are encouraged to define aliases within the ZSH_CUSTOM folder.
+alias zshconfig="$EDITOR ~/.zshrc"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias mkdir="mkdir -p"
+alias ll="ls -al"
+alias history="fc -lfD 1"

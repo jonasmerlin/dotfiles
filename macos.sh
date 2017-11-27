@@ -69,3 +69,9 @@ EOD
 # Link dotfiles
 ln -Ffs Documents/code/dotfiles/.zshrc .zshrc
 
+# Install gibo - a shell script for easily accessing gitignore boilerplates. 
+brew install gibo
+git clone https://github.com/simonwhitaker/gibo.git
+mkdir -p $ZSH/custom/plugins/gibo/
+ln -s ~/gibo/gibo-completion.zsh $ZSH/custom/plugins/gibo/gibo.plugin.zsh
+rm -rf ~/gibo
