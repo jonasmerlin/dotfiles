@@ -1,74 +1,67 @@
-# Install antigen if it is not installed already
-if [[ ! -f ~/.antigen.zsh ]]; then
-  curl https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > ~/.antigen.zsh
+# install zgen if it is not installed already
+if [[ ! -d ${HOME}/.zgen ]]; then
+  git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 fi
 
-source ~/antigen.zsh
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+# if the init scipt doesn't exist
+if ! zgen saved; then
+    echo "Creating a zgen save"
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle command-not-found
-antigen bundle cask
-antigen bundle docker
-antigen bundle extract
-antigen bundle git
-antigen bundle jsontools
-antigen bundle sublime
-antigen bundle node
-antigen bundle npm
-antigen bundle osx
-antigen bundle sudo
-antigen bundle web-search
-antigen bundle yarn
-antigen bundle z
+    # load the oh-my-zsh's library
+    zgen oh-my-zsh
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-# Autosuggestion of historic line completion.
-antigen bundle zsh-users/zsh-autosuggestions
+    # plugins from robbyrussell's oh-my-zsh
+    zgen oh-my-zsh plugins/command-not-found
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/extract
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/jsontools
+    zgen oh-my-zsh plugins/sublime
+    zgen oh-my-zsh plugins/node
+    zgen oh-my-zsh plugins/npm
+    zgen oh-my-zsh plugins/osx
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh plugins/web-search
+    zgen oh-my-zsh plugins/yarn
+    zgen oh-my-zsh plugins/z
 
-# Load the theme.
-antigen theme robbyrussell
+    # other plugins
+    # syntax highlighting
+    zgen load zsh-users/zsh-syntax-highlighting
+    # autosuggestion of historic line completion
+    zgen load zsh-users/zsh-autosuggestions
 
-# Tell Antigen that you're done.
-antigen apply
+    # completions
+    zgen load zsh-users/zsh-completions src
 
-# Change time stamp format for history command.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+    # theme
+    zgen oh-my-zsh themes/ys
+
+    # save all to init script
+    zgen save
+fi
+
+# change time stamp format for history command
+# the optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd-mm-yyyy"
 
-# Enable command auto-correction.
+# enable command auto-correction
 setopt CORRECT
-# If entered command doesn't exist, presume it is a directory and cd to it.
+# if entered command doesn't exist, presume it is a directory and cd
 setopt AUTO_CD
 
-# These and more are actually already set by oh-my-zsh but I keep them around
-# to remind me of them.
-# Append new history to the old.
-setopt APPEND_HISTORY
-# Do that not just on exiting the shell but constantly.
-setopt INC_APPEND_HISTORY
-# Share history across system.
-setopt SHARE_HISTORY
-# Display time, date and completion time in history.
-setopt EXTENDED_HISTORY
-# Throw out duplicate lines first when history fills up.
-setopt HIST_EXPIRE_DUPS_FIRST
-# Lines which begin with a space don't go into the history.
-setopt HIST_IGNORE_SPACE
-
-
-# Make nvm work
-export NVM_DIR="$HOME/.nvm"
+# make nvm work
+export NVM_DIR="${HOME}/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
-# Make z work
+# make z work
 . /usr/local/etc/profile.d/z.sh
 
-# Source aliases from ~/.aliasrc
-# . is the traditional source from Bourne and Korn shells.
-if [[ -r ~/.aliasrc ]]; then
+# source aliases from ~/.aliasrc
+# . is the traditional source from Bourne and Korn shells
+if [[ -r ${HOME}/.aliasrc ]]; then
   . ~/.aliasrc
 fi
