@@ -14,6 +14,7 @@ if ! zgen saved; then
     zgen oh-my-zsh
 
     # plugins from robbyrussell's oh-my-zsh
+    zgen oh-my-zsh plugins/colored-man-pages
     zgen oh-my-zsh plugins/command-not-found
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/extract
@@ -24,7 +25,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/osx
     zgen oh-my-zsh plugins/sudo
-    zgen oh-my-zsh plugins/web-search
     zgen oh-my-zsh plugins/yarn
     zgen oh-my-zsh plugins/z
 
@@ -36,6 +36,10 @@ if ! zgen saved; then
 
     # completions
     zgen load zsh-users/zsh-completions src
+    # reminds you that you should use one of your existing aliases for a command you just typed
+    zgen load MichaelAquilina/zsh-you-should-use
+    # please OS X (or whatever your name is) just fucking reset your DNS cache please
+    zgen load eventi/noreallyjustfuckingstopalready
 
     # theme
     zgen oh-my-zsh themes/ys
