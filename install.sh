@@ -70,3 +70,5 @@ EOD
 
 # Link dotfiles
 ln -Ffs Documents/code/dotfiles/.zshrc .zshrc
+ln -Ffs Documents/code/dotfiles/.zshenv .zshenv
+ln -Ffs Documents/code/dotfiles/.editorconfig .editorconfig
