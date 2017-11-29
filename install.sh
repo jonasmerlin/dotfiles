@@ -7,21 +7,23 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install homebrew and homebrew cask
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap caskroom/cask
+if test ! $(which brew); then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Update Homebrew recipes
+brew update
+
+# Install all our dependencies with bundle (See Brewfile)
+brew bundle
 
 # Change standard shell to zshell
 chsh -s $(which zsh)
 
-# Install antigen plug-in manager for zshell
-curl -L git.io/antigen > antigen.zsh
-
-# Install the Powerline fonts for a nice prompt
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
+# install zgen if it is not installed already
+if [[ ! -d ${HOME}/.zgen ]]; then
+  git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+fi
 
 # Use the Solarized Dark theme by default in Terminal.app
 # Source: https://github.com/kevinSuttle/macOS-Defaults
@@ -68,10 +70,3 @@ EOD
 
 # Link dotfiles
 ln -Ffs Documents/code/dotfiles/.zshrc .zshrc
-
-# Install gibo - a shell script for easily accessing gitignore boilerplates. 
-brew install gibo
-git clone https://github.com/simonwhitaker/gibo.git
-mkdir -p $ZSH/custom/plugins/gibo/
-ln -s ~/gibo/gibo-completion.zsh $ZSH/custom/plugins/gibo/gibo.plugin.zsh
-rm -rf ~/gibo

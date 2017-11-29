@@ -1,8 +1,3 @@
-# install zgen if it is not installed already
-if [[ ! -d ${HOME}/.zgen ]]; then
-  git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
-fi
-
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -43,6 +38,17 @@ if ! zgen saved; then
 
     # theme
     zgen oh-my-zsh themes/ys
+
+    GIBO_AC_DIR="${ZSH}/custom/plugins/gibo"
+    if [ ! -d "${GIBO_AC_DIR}" ]; then
+      echo "Creating gibo dir"
+      mkdir -p ${GIBO_AC_DIR}
+      git clone https://github.com/simonwhitaker/gibo.git ~
+      mv "~/gibo/gibo-completion.zsh" "${GIBO_AC_DIR}/gibo.plugin.zsh"
+      rm -rf ~/gibo
+    fi
+
+    zgen oh-my-zsh custom/plugins/gibo
 
     # save all to init script
     zgen save
