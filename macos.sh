@@ -75,3 +75,9 @@ fi
 ln -Ffs ~/dotfiles/.zshenv .zshenv
 ln -Ffs ~/dotfiles/.zshrc .zshrc
 ln -Ffs ~/dotfiles/.editorconfig .editorconfig
+
+# Set the name of the Mac
+
+scutil --set ComputerName "Jonass-MBP"
+scutil --set LocalHostName "Jonass-MBP"
+scutil --set HostName "Jonass-MBP"
