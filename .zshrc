@@ -10,7 +10,6 @@ if ! zgen saved; then
 
     # plugins from robbyrussell's oh-my-zsh
     zgen oh-my-zsh plugins/colored-man-pages
-    zgen oh-my-zsh plugins/command-not-found
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/git
@@ -20,7 +19,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/osx
     zgen oh-my-zsh plugins/sudo
-    zgen oh-my-zsh plugins/yarn
     zgen oh-my-zsh plugins/z
 
     # other plugins
