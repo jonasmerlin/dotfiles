@@ -17,7 +17,7 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew bundle
 
-# Add zsh to the list of allowed shells to make chsh
+# Add zsh to the list of allowed shells to make chsh work
 echo /usr/local/bin/zsh | sudo tee -a /etc/shells
 
 # Change standard shell to zshell
