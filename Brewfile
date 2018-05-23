@@ -58,7 +58,7 @@ cask 'font-fira-mono'
 cask 'font-fira-mono-for-powerline'
 
 # Install Mac App Store apps
-mas '1Password', id: 443987910
+mas '1Password', id: 1333542190
 mas 'Gapplin', id: 768053424
 mas 'Trello', id: 1278508951
 mas 'WhatsApp', id: 1147396723
