@@ -20,18 +20,14 @@ brew 'bash'
 
 brew 'gibo'
 brew 'git'
-brew 'hub'
 brew 'mackup'
 brew 'mas'
 brew 'nvm'
-brew 'trash'
 brew 'tree'
 brew 'wget'
-brew 'yarn'
 brew 'z'
 
 # Vetted Apps
-cask '1password'
 cask 'anki'
 cask 'calibre'
 cask 'cyberduck'
@@ -42,10 +38,6 @@ cask 'firefox'
 cask 'flux'
 cask 'gitkraken'
 cask 'google-chrome'
-cask 'insomnia'
-cask 'iterm2'
-cask 'karabiner-elements'
-cask 'key-codes'
 cask 'openemu'
 cask 'selfcontrol'
 cask 'simple-comic'
@@ -54,25 +46,11 @@ cask 'spotify'
 cask 'telegram'
 cask 'transmission'
 cask 'the-unarchiver'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
 cask 'visual-studio-code'
 cask 'vlc'
 
 # App Contenders
 cask 'spectacle'
-cask 'macdown'
-cask 'imagealpha'
-cask 'imageoptim'
-cask 'hammerspoon'
-cask 'gyazo'
-
-# Quicklook
-cask 'qlcolorcode'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'quicklook-csv'
-cask 'qlstephen'
 
 # Fonts
 cask 'font-fira-code'
@@ -82,4 +60,3 @@ cask 'font-fira-mono-for-powerline'
 # Install Mac App Store apps
 mas '1Password', id: 443987910
 mas 'Gapplin', id: 768053424
-mas 'Giphy Capture', id: 668208984
