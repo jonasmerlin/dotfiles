@@ -17,6 +17,9 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew bundle
 
+# Add zsh to the list of allowed shells to make chsh
+echo /usr/local/bin/zsh | sudo tee -a /etc/shells
+
 # Change standard shell to zshell
 chsh -s $(which zsh)
 
@@ -69,6 +72,6 @@ fi
 # EOD
 
 # Link dotfiles
-ln -Ffs .zshenv ~/dotfiles/.zshenv
-ln -Ffs .zshrc ~/dotfiles/.zshrc 
-ln -Ffs .editorconfig ~/dotfiles/.editorconfig
+ln -Ffs ~/dotfiles/.zshenv .zshenv
+ln -Ffs ~/dotfiles/.zshrc .zshrc
+ln -Ffs ~/dotfiles/.editorconfig .editorconfig
