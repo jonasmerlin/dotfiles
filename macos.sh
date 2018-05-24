@@ -28,6 +28,10 @@ if [[ ! -d ${HOME}/.zgen ]]; then
   git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 fi
 
+# Install and use newest version of node
+nvm install node
+nvm use node
+
 # # Use the Solarized Dark theme by default in Terminal.app
 # # Source: https://github.com/kevinSuttle/macOS-Defaults
 # osascript <<EOD
