@@ -73,3 +73,7 @@ export NVM_DIR="${HOME}/.nvm"
 if [[ -r ${HOME}/.aliasrc ]]; then
   . ~/.aliasrc
 fi
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/jonasmerlin/.nvm/versions/node/v10.2.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/jonasmerlin/.nvm/versions/node/v10.2.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh

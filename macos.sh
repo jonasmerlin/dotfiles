@@ -23,6 +23,11 @@ echo /usr/local/bin/zsh | sudo tee -a /etc/shells
 # Change standard shell to zshell
 chsh -s $(which zsh)
 
+# TODO: Test this.
+# Should make nvm work already
+export NVM_DIR="${HOME}/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
 # install zgen if it is not installed already
 if [[ ! -d ${HOME}/.zgen ]]; then
   git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
@@ -31,6 +36,11 @@ fi
 # Install and use newest version of node
 nvm install node
 nvm use node
+
+# Update npm itself
+npm i -g npm to update
+
+npm install -g tldr
 
 # # Use the Solarized Dark theme by default in Terminal.app
 # # Source: https://github.com/kevinSuttle/macOS-Defaults
@@ -75,6 +85,11 @@ nvm use node
 
 # EOD
 
+# Install virtualenv
+mkdir $HOME/.venv
+sudo easy_install pip
+pip install --upgrade virtualenv
+
 # Link dotfiles
 ln -Ffs ~/dotfiles/.zshenv .zshenv
 ln -Ffs ~/dotfiles/.zshrc .zshrc
@@ -82,6 +97,6 @@ ln -Ffs ~/dotfiles/.editorconfig .editorconfig
 
 # Set the name of the Mac
 
-scutil --set ComputerName "Jonass-MBP"
-scutil --set LocalHostName "Jonass-MBP"
-scutil --set HostName "Jonass-MBP"
+scutil --set ComputerName "jonasmerlin-macbookpro"
+scutil --set LocalHostName "jonasmerlin-macbookpro"
+scutil --set HostName "jonasmerlin-macbookpro"
