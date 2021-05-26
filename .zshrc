@@ -10,16 +10,14 @@ if ! zgen saved; then
 
     # plugins from robbyrussell's oh-my-zsh
     zgen oh-my-zsh plugins/colored-man-pages
-    zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/jsontools
-    zgen oh-my-zsh plugins/sublime
     zgen oh-my-zsh plugins/node
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/osx
     zgen oh-my-zsh plugins/sudo
-    zgen oh-my-zsh plugins/z
+    zgen oh-my-zsh plugins/vi-mode
 
     # other plugins
     # syntax highlighting
@@ -61,19 +59,26 @@ setopt CORRECT
 # if entered command doesn't exist, presume it is a directory and cd
 setopt AUTO_CD
 
-# make nvm work
-export NVM_DIR="${HOME}/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-# make z work
-. /usr/local/etc/profile.d/z.sh
-
 # source aliases from ~/.aliasrc
 # . is the traditional source from Bourne and Korn shells
 if [[ -r ${HOME}/.aliasrc ]]; then
   . ~/.aliasrc
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# export PATH="/usr/local/sbin:$PATH"
+
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /Users/jonasmerlin/.nvm/versions/node/v10.2.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/jonasmerlin/.nvm/versions/node/v10.2.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+[[ -f /Users/jonas/code/wf/strokes/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/jonas/code/wf/strokes/node_modules/tabtab/.completions/electron-forge.zsh
+
+# function to easily call cht.sh
+# source: https://news.ycombinator.com/item?id=22117237
+cheat () {
+  curl "cheat.sh/$1"
+}
+
+eval "$(direnv hook zsh)"
