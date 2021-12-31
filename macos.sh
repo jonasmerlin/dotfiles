@@ -43,12 +43,18 @@ mkdir $HOME/.venv
 sudo easy_install pip
 pip install --upgrade virtualenv
 
+cp ~/dotfiles/themes/kitty-dracula/dracula.conf ~/.config/kitty/
+cp ~/dotfiles/themes/kitty-dracula/diff.conf ~/.config/kitty/
+
 # Link dotfiles
 ln -Ffs ~/dotfiles/.zshenv ~/.zshenv
 ln -Ffs ~/dotfiles/.zshrc ~/.zshrc
 ln -Ffs ~/dotfiles/.editorconfig ~/.editorconfig
 ln -Ffs ~/dotfiles/.aliasrc ~/.aliasrc
 ln -Ffs ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -Ffs ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -Ffs ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -Ffs ~/dotfiles/starship.toml ~/.config/starship.toml
 
 # Set the name of the Mac
 
